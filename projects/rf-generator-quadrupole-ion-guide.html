@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Darren Lee - RF Generator for Quadrupole Ion Guide</title>
+  <meta name="description" content="RF Generator for Quadrupole Ion Guide — Evan R. Williams Research Group." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body data-page="projects">
+
+  <div id="site-nav-mount"></div>
+
+  <main class="page">
+
+    <div class="pd-head">
+      <div class="pd-eyebrow">RF Generator for Quadrupole Ion Guide <span class="sub">· Spring 2026</span></div>
+    </div>
+
+    <div class="proj-grid-2">
+      <img class="proj-img" src="../images/projects/rf-generator-team.jpg" alt="Williams Group RF generator team" onerror="this.remove()" loading="lazy" />
+      <img class="proj-img" src="../images/projects/rf-transformer.jpg" alt="Custom-wound toroidal step-up transformer prototype" onerror="this.remove()" loading="lazy" />
+    </div>
+
+    <div class="pd-text">
+      <p>Our team at the Williams Group is designing and constructing custom RF generators capable of producing 1 to 1.5 kV amplitude waveforms from DC to 10 MHz, able to drive capacitive loads up to 1 nF. The system has three components: a computer interface that synthesizes arbitrary waveforms and communicates with the host machine over SPI (requiring custom software drivers), a power amplifier built and tested from an existing design and modified for our application, and a center-tapped step-up transformer to produce two waveforms 180 degrees out of phase.</p>
+      <p>My work on this project was the transformer. I started by researching commercial transformers against our target specs (1:8 to 1:10 step-up ratio, 1.0 to 1.5 kV output, 100 Hz to 10 MHz frequency range, center-tapped for 180 degree outputs, capacitive load), and found that no existing part could satisfy all three of turns ratio, voltage, and frequency range simultaneously, so I moved to a custom-wound design. I selected toroidal cores over U-core geometries for lower leakage inductance, and chose Material 43 NiZn ferrite over MnZn for its insulating properties and suitability at RF frequencies. I calculated the minimum primary turn count needed to avoid core saturation at our lowest operating frequency, then wound and tested prototype transformers at a smaller turns ratio to validate the approach with a function generator swept across a wide frequency range.</p>
+    </div>
+
+    <a class="pd-back" href="../projects.html">&larr; back to projects</a>
+  </main>
+
+  <footer class="site-foot">
+    <span>© 2026 Darren Lee</span>
+    <span>Engineered with Electricity · <a href="#" target="_blank" rel="noopener">source</a></span>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

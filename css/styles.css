@@ -344,6 +344,15 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .about-content a.inline-link:hover { opacity: 0.75; }
 
+.pd-text a.inline-link,
+.proj-section a.inline-link {
+  color: var(--c-projects);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.pd-text a.inline-link:hover,
+.proj-section a.inline-link:hover { opacity: 0.75; }
+
 .about-content .closer {
   margin-top: var(--s-6);
   color: var(--text-muted);
