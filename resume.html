@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Darren Lee - Resume</title>
-  <meta name="description" content="Resume — Your Name." />
+  <meta name="description" content="Resume — Darren Lee." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,14 +25,14 @@
       <div class="meta">
         <span>updated 09/01/2026</span>
         <span class="dot" aria-hidden="true"></span>
-        <a href="assets/resume.pdf" target="_blank" rel="noopener">download pdf ↗</a>
+        <a href="assets/resume.pdf?v=20260901" target="_blank" rel="noopener">download pdf ↗</a>
       </div>
     </header>
 
-    <!-- TODO: drop your resume PDF at assets/resume.pdf — it will show
-         below automatically. Until then this shows a placeholder. -->
+    <!-- The ?v= query param busts browser/PDF-viewer caching so the embed
+         always shows the latest file — bump it whenever resume.pdf changes. -->
     <div class="resume-frame" id="resumeFrame">
-      <iframe src="assets/resume.pdf#view=FitH" title="Resume (PDF)" loading="lazy"></iframe>
+      <iframe src="assets/resume.pdf?v=20260901#view=FitH" title="Resume (PDF)" loading="lazy"></iframe>
     </div>
 
   </main>
@@ -45,7 +45,7 @@
   <script src="js/nav.js"></script>
   <script>
     (function () {
-      fetch('assets/resume.pdf', { method: 'HEAD' })
+      fetch('assets/resume.pdf?v=20260901', { method: 'HEAD' })
         .then(function (res) { if (!res.ok) throw new Error(); })
         .catch(function () {
           document.getElementById('resumeFrame').innerHTML =
