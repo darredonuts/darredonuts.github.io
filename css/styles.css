@@ -576,7 +576,6 @@ body[data-page="projects"] main.page {
 .pd-img-2 { align-self: center; width: 100%; }
 
 .pd-text {
-  max-width: 980px;
   border: 1px solid var(--rule);
   background: var(--bg-raised);
   padding: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 40px);
@@ -591,6 +590,11 @@ body[data-page="projects"] main.page {
   line-height: 1.75;
   color: var(--text);
   margin: 0;
+}
+.pd-text p.pd-note {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-muted);
 }
 .pd-back {
   display: inline-flex;
@@ -659,13 +663,6 @@ body[data-page="projects"] main.page {
 
 .proj-hero-figure {
   margin-bottom: clamp(24px, 3vw, 36px);
-  display: flex;
-  justify-content: center;
-}
-.proj-hero-figure .proj-img {
-  max-height: 540px;
-  width: auto;
-  max-width: 100%;
 }
 
 .proj-blurb {
