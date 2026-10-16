@@ -31,3 +31,5 @@ Plain HTML/CSS/JS, no build step. Open any `.html` file directly, or serve the f
 ## Design tokens
 
 All colors/fonts live at the top of `css/styles.css` under `:root` — change them once to reskin every page.
+
+After editing `css/styles.css`, bump the `?v=` param on the stylesheet link in every `.html` file so browsers fetch the new version instead of a cached one.
