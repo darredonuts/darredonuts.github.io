@@ -11,7 +11,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="../css/styles.css?v=20261019" />
+  <link rel="stylesheet" href="../css/styles.css?v=20261022" />
 </head>
 
 <body data-page="projects">
@@ -22,24 +22,75 @@
 
     <div class="pd-head">
       <div class="pd-eyebrow">RF Generator for Quadrupole Ion Guide <span class="sub">· Spring 2026 to Present</span></div>
+      <p class="pd-lead">A kilovolt RF generator for a mass spectrometer. I custom-wound a toroid transformer with 474% more gain at 1 MHz than a U-core, and now own the high voltage resonator board.</p>
+      <p class="pd-role">Electrical Engineering Consultant · Evan R. Williams Research Group, via Engineering Solutions at Berkeley · Feb 2026 to Present</p>
     </div>
 
     <div class="proj-hero-figure">
+      <!-- IMAGE PENDING: rf-generator-cover.jpg
+      <img class="proj-img" src="../images/projects/rf-generator-cover.jpg" alt="RF generator project hardware" style="max-width: 640px; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+      -->
       <img class="proj-img" src="../images/projects/rf-generator-team.jpg" alt="Williams Group RF generator team" style="max-width: 640px; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
     </div>
 
     <div class="pd-text">
-      <p class="pd-lead">Currently designing the high voltage resonator PCB for the project's second phase. See Fall 2026 below.</p>
-      <p class="pd-subhead">Spring 2026: the custom transformer</p>
-      <img class="proj-img" src="../images/projects/rf-transformer.jpg" alt="Custom-wound toroidal step-up transformer prototype" style="max-width: 480px; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+      <p class="pd-subhead">The goal</p>
+      <p>A mass spectrometer weighs molecules by trapping them in fast switching electric fields. Those fields need a clean, high voltage signal, up to 1.5 kV swinging as fast as a million times a second. My part is the stage that builds that voltage.</p>
+
+      <p class="pd-subhead">What I did</p>
+      <p><em>Spring 2026: the custom transformer</em></p>
+      <figure>
+        <img class="proj-img" src="../images/projects/rf-transformer.jpg" alt="Custom-wound toroidal step-up transformer prototype" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Custom-wound Material 43 toroid prototype</figcaption>
+      </figure>
       <p>Our team at the Williams Group is designing and constructing custom RF generators capable of producing 1 to 1.5 kV amplitude waveforms from 100 Hz to 10 MHz, able to drive capacitive loads up to 1 nF. The system has three components: a computer interface that synthesizes arbitrary waveforms and communicates with the host machine over SPI (requiring custom software drivers), a power amplifier built and tested from an existing design and modified for our application, and a center-tapped step-up transformer to produce two waveforms 180 degrees out of phase.</p>
       <p>My work on this project was the transformer. I started by researching commercial transformers against our target specs (1:8 to 1:10 step-up ratio, 1.0 to 1.5 kV output, 100 Hz to 10 MHz frequency range, center-tapped for 180 degree outputs, capacitive load), and found that no existing part could satisfy all three of turns ratio, voltage, and frequency range simultaneously, so I moved to a custom-wound design. I selected toroidal cores over U-core geometries for lower leakage inductance, and chose Material 43 NiZn ferrite over MnZn for its insulating properties and suitability at RF frequencies. I calculated the minimum primary turn count needed to avoid core saturation at our lowest operating frequency, then wound and tested prototype transformers at a smaller turns ratio to validate the approach with a function generator swept across a wide frequency range.</p>
+      <!-- IMAGE PENDING: rf-bench-setup.jpg
+      <figure>
+        <img class="proj-img" src="../images/projects/rf-bench-setup.jpg" alt="Bench setup with function generator, oscilloscope, and transformer under test" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Swept frequency test setup</figcaption>
+      </figure>
+      -->
+      <!-- IMAGE PENDING: rf-turns-calc.jpg
+      <figure>
+        <img class="proj-img" src="../images/projects/rf-turns-calc.jpg" alt="Hand calculation of minimum primary turns to avoid core saturation" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Minimum primary turns calculation</figcaption>
+      </figure>
+      -->
       <p>The prototypes were a 22 mm Material 43 toroid and a Material 77 MnZn U-core, both wound at the same 20:80 turns ratio and swept from 50 kHz to 3 MHz. The toroid held a steady 2.9x to 3.9x step-up from 50 kHz to 1 MHz and stayed usable to about 1.5 MHz, with its self-resonance near 1.75 MHz spiking the gain to 10.5x. The U-core peaked near 360 kHz and then collapsed, delivering just 0.68x at 1 MHz, actually stepping the signal down. Both fell slightly short of the ideal 4x because the function generator's 50 ohm output impedance loaded the primary.</p>
-      <img class="proj-img" src="../images/projects/rf-gain-table.png" alt="Measured step-up gain for a Material 43 toroid versus a Material 77 U-core: 2.87x vs 2.46x at 50 kHz, 2.94x vs 4.94x at 360 kHz, 3.90x vs 0.68x at 1 MHz, 10.5x toroid self-resonance at 1.75 MHz, 1.76x vs 0.20x at 3 MHz." style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
-      <p class="pd-note">Both cores wound 20:80 (4x ideal), driven by a 50 ohm function generator.</p>
-      <p class="pd-subhead">Fall 2026: the resonator board</p>
-      <p>After reviewing our spring results, the group scoped a follow-up phase with a new architecture and a broader set of loads. The generator now drives quadrupoles at 1 to 1.5 kV peak to peak into about 300 pF and/or ion funnels at 250 V peak to peak into 500 pF to 1 nF, both across 10 kHz to 1 MHz. The system is split across two boards. The first combines waveform generation and power amplification: a microcontroller synthesizes the drive signal under host control, and the signal is filtered, set to level by a variable gain amplifier, and boosted by a pair of PA107 high voltage op amps. The second is the resonator board, which steps that output up to the final voltage.</p>
-      <p>I'm responsible for designing the resonator board. Our current plan splits the band in two. From 10 to 40 kHz, a custom 1:9 broadband transformer steps an 80 V input up to 750 V amplitude on each output. Above 40 kHz, the board switches to a resonant LC tank. A chain of 16 binary-weighted toroidal inductors, from 4 &micro;H to 128 mH and each bypassed by its own relay, sets the inductance with 16 bits of resolution. A trim capacitor then fine-tunes the resonance, so the load's own capacitance becomes part of the tuned circuit. Phase and amplitude feedback goes back to the waveform generator to keep the tank on resonance. The design is still a working plan, and the PCB is where it has to become physical: spacing copper to stand off over a kilovolt, choosing relays and components rated for the voltage swing, and keeping the high voltage outputs isolated from the low voltage control signals.</p>
+      <figure>
+        <img class="proj-img" src="../images/projects/rf-gain-table.png" alt="Measured step-up gain for a Material 43 toroid versus a Material 77 U-core: 2.87x vs 2.46x at 50 kHz, 2.94x vs 4.94x at 360 kHz, 3.90x vs 0.68x at 1 MHz, 10.5x toroid self-resonance at 1.75 MHz, 1.76x vs 0.20x at 3 MHz" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Both cores wound 20:80 (4x ideal), driven by a 50 ohm function generator</figcaption>
+      </figure>
+
+      <p><em>Fall 2026: the resonator board</em></p>
+      <p>After reviewing our spring results, the group scoped a follow-up phase with a broader set of loads. The generator now drives quadrupoles at up to 750 V amplitude on each of two antiphase outputs, riding on a 1 kV DC offset into about 300 pF, and/or ion funnels at 250 V peak to peak into 500 pF to 1 nF, anywhere from 10 kHz to 1 MHz. These loads are capacitors, so at high frequency they demand far more current than an amplifier can supply directly. The design gets around that with resonance.</p>
+      <!-- IMAGE PENDING: rf-system-block-diagram.png
+      <figure>
+        <img class="proj-img" src="../images/projects/rf-system-block-diagram.png" alt="Block diagram of the two-board RF generator: waveform generator and power amplifier board feeding the resonator board" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>System architecture</figcaption>
+      </figure>
+      -->
+      <p>The system is two boards. On the first, an STM32H7 takes commands over isolated USB and programs a DDS to generate a sine wave, which passes through a reconstruction filter and a variable gain amplifier into two PA107 power op amps driven in bridge. I own the second board, the resonator. It takes that drive through a step down transformer, sized to keep the amplifiers within their current limit, into a series LC tank. Relay-switched inductor sections from about 5 &micro;H to 3.2 mH and a capacitor bank from 2 pF to 20 nF tune the tank to the requested frequency, so the rods' own capacitance resonates and builds up the high voltage. Amplitude and phase feedback go back to the first board to hold the output on resonance at the right level.</p>
+      <!-- IMAGE PENDING: rf-ltspice-tank.png
+      <figure>
+        <img class="proj-img" src="../images/projects/rf-ltspice-tank.png" alt="LTspice schematic and frequency response of the resonant tank" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>LTspice model of the resonant tank</figcaption>
+      </figure>
+      -->
+      <p>The architecture is settled at the block level, and I'm now designing the resonator PCB in KiCad, researching high voltage layout (creepage, clearance, isolation, and discharge safety), and running LTspice simulations of the tank. Cost has become a main constraint, so part of the work is weighing cheaper options like dual pole relays against their isolation limits.</p>
+      <!-- IMAGE PENDING: rf-kicad-resonator.png
+      <figure>
+        <img class="proj-img" src="../images/projects/rf-kicad-resonator.png" alt="KiCad layout of the high voltage resonator board" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Resonator board in KiCad (in progress)</figcaption>
+      </figure>
+      -->
+
+      <p class="pd-subhead">Results</p>
+      <ul>
+        <li>474% higher step-up gain at 1 MHz than the U-core (3.9x vs 0.68x)</li>
+        <li>Resonator architecture settled; PCB design in progress</li>
+      </ul>
     </div>
 
     <a class="pd-back" href="../projects.html">&larr; back to projects</a>

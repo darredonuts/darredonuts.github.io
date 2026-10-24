@@ -11,7 +11,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="../css/styles.css?v=20261019" />
+  <link rel="stylesheet" href="../css/styles.css?v=20261022" />
 </head>
 
 <body data-page="projects">
@@ -22,6 +22,8 @@
 
     <div class="pd-head">
       <div class="pd-eyebrow">Drone Docking Station/Structural PDB <span class="sub">· Summer 2026</span></div>
+      <p class="pd-lead">Landing guidance that lives in the dock, not the drone: an IR beacon board and a structural power board for a sub-250 g airframe.</p>
+      <p class="pd-role">Electrical Engineering Intern · Fusion Dynamics · June 2026 to Aug 2026</p>
     </div>
 
     <div class="proj-hero-figure">
@@ -29,9 +31,33 @@
     </div>
 
     <div class="pd-text">
-      <p>I interned at Fusion Dynamics, a plasma technology company working on aerospace applications, where I contributed to a drone-agnostic autonomous docking station designed so any approved drone could dock and charge without a pilot in the loop, with the intelligence living in the dock rather than the drone itself.</p>
-      <p>My work on this project spanned both planning and hardware. I worked through much of the project's scoping and architecture, including the fiducial marker and IR beacon landing approach, vision guidance strategy, and command uplink architecture, and developed a staged v1/v2 rollout plan to sequence the work. On the hardware side, I designed a beacon board using four 850nm IR LEDs in an asymmetric pattern to support IR-based landing guidance, verifying the layout through design rule checks and generating manufacturing files. I also helped design a 4-layer structural frame PCB, sized to double as both the drone's top plate and its power distribution board, keeping drones cheap, lightweight, and easily interchangeable across the fleet while all system intelligence stayed centralized in the dock.</p>
-      <p class="pd-note">No pictures or work files due to NDA.</p>
+      <p class="pd-subhead">The goal</p>
+      <p>Instead of making every drone smart, the dock does the thinking. A camera watches infrared lights under the drone and steers it down, so the drones stay cheap and interchangeable.</p>
+
+      <p class="pd-subhead">What I did</p>
+      <p>I interned at Fusion Dynamics, a plasma technology company working on aerospace applications, where I contributed to a drone-agnostic autonomous docking station designed so any approved drone could dock without a pilot in the loop, with the intelligence living in the dock rather than the drone itself.</p>
+      <!-- IMAGE PENDING: fusion-dock-concept.png
+      <figure>
+        <img class="proj-img" src="../images/projects/fusion-dock-concept.png" alt="Concept sketch: dock camera looking up at IR beacons on the underside of a drone" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Dock-side landing guidance concept</figcaption>
+      </figure>
+      -->
+      <p>My work on this project spanned both planning and hardware. I worked through much of the project's scoping and architecture, including the fiducial marker and IR beacon landing approach, vision guidance strategy, and command uplink architecture, and developed a staged v1/v2 rollout plan to sequence the work. On the hardware side, I designed a beacon board using four 850nm IR LEDs in an asymmetric pattern to support IR-based landing guidance, verifying the layout through design rule checks and generating manufacturing files. I also helped review a 4-layer structural frame PCB, sized to double as both the drone's top plate and its power distribution board, keeping drones cheap, lightweight, and easily interchangeable across the fleet while all system intelligence stayed centralized in the dock.</p>
+      <p>For the beacon, I compared candidate LED geometries computationally and picked a layout with nearly 3x the rotational distinctness of my first attempt. Instead of a linear LED driver, I powered the LEDs from the drone's existing 5 V rail and sized the current limiting resistors against worst-case supply and LED tolerances. On the frame board, design review caught a connector short of the pins its signals needed and the copper weight conflict with the fab's impedance service, both before fabrication.</p>
+      <!-- IMAGE PENDING: fusion-stackup.png
+      <figure>
+        <img class="proj-img" src="../images/projects/fusion-stackup.png" alt="Generic four-layer PCB stackup showing power, ground, power islands, and signal layers" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Four-layer stackup of the frame board</figcaption>
+      </figure>
+      -->
+
+      <p class="pd-subhead">Results</p>
+      <ul>
+        <li>Beacon layout with nearly 3x the rotational distinctness of the first candidate, taken through DRC and Gerber export</li>
+        <li>Two board-level issues caught in design review before fabrication</li>
+      </ul>
+
+      <p class="pd-note">Board files and photos withheld due to NDA; diagrams are generic illustrations.</p>
     </div>
 
     <a class="pd-back" href="../projects.html">&larr; back to projects</a>

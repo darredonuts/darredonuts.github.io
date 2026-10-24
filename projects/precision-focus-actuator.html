@@ -11,7 +11,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="../css/styles.css?v=20261019" />
+  <link rel="stylesheet" href="../css/styles.css?v=20261022" />
 </head>
 
 <body data-page="projects">
@@ -22,6 +22,8 @@
 
     <div class="pd-head">
       <div class="pd-eyebrow">Precision Focus Actuator <span class="sub">· Fall 2025</span></div>
+      <p class="pd-lead">Closed-loop control for a space camera focus actuator: 12.96 mil of travel at about 4.9 nm per step, with every 1 mil test move within &plusmn;0.2 mil.</p>
+      <p class="pd-role">Electrical and Software Engineering Consultant · Malin Space Science Systems, via Engineering Solutions at Berkeley · Sept 2025 to Dec 2025</p>
     </div>
 
     <div class="proj-hero-figure">
@@ -29,9 +31,32 @@
     </div>
 
     <div class="pd-text">
+      <p class="pd-subhead">The goal</p>
+      <p>A camera focuses by moving a lens a tiny distance. Screws and gears have slack, so the lens lands in a slightly different spot depending on which way it moved. My job was the electronics and code that take that slack out.</p>
+
+      <p class="pd-subhead">What I did</p>
       <p>As a team, we worked with Malin Space Science Systems through Engineering Solutions at Berkeley to design a focus actuator for space camera applications used primarily in NASA rovers. We evaluated several actuation approaches before settling on a mechanical design, with a heavy emphasis on fatigue resistance and product lifetime, then built a working prototype and tested it for positional accuracy and repeatability.</p>
-      <p>My work on this project was the control systems and algorithms. A stepper run open loop drifts, because backlash makes the element land in a slightly different place depending on which direction it approached from, so the firmware had to measure that error rather than assume it away. The system ran a DRV8834 stepper driver in microstepping mode, with limit switches at each end of travel providing an absolute home reference and a ratiometric Hall sensor giving continuous position feedback. I designed a bidirectional homing and midpoint referencing algorithm using limit switches and a Hall sensor to compute and compensate for mechanical backlash, achieving 0.139 mil actuation per degree of rotation and overall actuation precision of ±2 mil.</p>
+      <p>My work on this project was the control systems and algorithms. A stepper run open loop drifts, because backlash makes the element land in a slightly different place depending on which direction it approached from, so the firmware had to measure that error rather than assume it away. The system ran a DRV8834 stepper driver in microstepping mode, with limit switches at each end of travel providing an absolute home reference and a ratiometric Hall sensor giving continuous position feedback. I designed a bidirectional homing and midpoint referencing algorithm using limit switches and a Hall sensor to compute and compensate for mechanical backlash. The finished prototype delivered 12.96 mil of travel, 3.2x the required &plusmn;2 mil range, at about 4.9 nm per step. The midpoint is found from the median of 25 hall readings taken 10 &micro;s apart, and the firmware measures backlash, about 250 steps, and recalibrates it every 5 cycles.</p>
+      <!-- IMAGE PENDING: actuator-block-diagram.png
+      <figure>
+        <img class="proj-img" src="../images/projects/actuator-block-diagram.png" alt="Block diagram: stepper motor, lead screw, and lens with hall sensor and limit switches feeding the controller" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Control system overview</figcaption>
+      </figure>
+      -->
+      <!-- IMAGE PENDING: actuator-homing-flowchart.png
+      <figure>
+        <img class="proj-img" src="../images/projects/actuator-homing-flowchart.png" alt="Flowchart of the bidirectional homing and midpoint referencing routine" style="max-width: 100%; margin: 0 auto;" onerror="this.remove()" loading="lazy" />
+        <figcaption>Homing and midpoint referencing</figcaption>
+      </figure>
+      -->
       <p>I validated the electronics across several 3D printed housing iterations, calibrating steps against actual displacement, testing median filtering on the Hall signal, checking limit switch reliability over repeated actuations, and verifying that the closed loop compensation removed the direction dependent error.</p>
+
+      <p class="pd-subhead">Results</p>
+      <ul>
+        <li>12.96 mil of travel, 3.2x the &plusmn;2 mil range specification, at about 4.9 nm per step</li>
+        <li>All 40 trials of 1 mil moves within &plusmn;0.2 mil across 84 total test runs</li>
+      </ul>
+
       <p class="pd-note">No pictures or additional information due to NDA.</p>
     </div>
 

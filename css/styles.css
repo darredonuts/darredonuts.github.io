@@ -495,6 +495,13 @@ body[data-page="projects"] main.page {
   font-weight: 700;
   margin-bottom: 10px;
 }
+.project-tile .pt-teaser {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 12px;
+}
 .project-tile .pt-date {
   font-family: var(--font-sans);
   font-size: 12px;
@@ -596,7 +603,9 @@ body[data-page="projects"] main.page {
   font-style: italic;
   color: var(--text-muted);
 }
-.pd-text p.pd-lead {
+.pd-text p.pd-lead,
+.pd-head p.pd-lead {
+  margin: var(--s-3) 0 0 0;
   font-family: var(--font-display);
   font-size: clamp(18px, 1.7vw, 22px);
   line-height: 1.4;
@@ -611,6 +620,38 @@ body[data-page="projects"] main.page {
   color: var(--text-heading);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+.pd-head p.pd-role {
+  margin: var(--s-2) 0 0 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.pd-text ul {
+  list-style: disc;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.pd-text li {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.pd-text figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.pd-text figcaption {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
 }
 .pd-back {
   display: inline-flex;
