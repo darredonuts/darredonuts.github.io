@@ -11,6 +11,7 @@ Plain HTML/CSS/JS, no build step. Open any `.html` file directly, or serve the f
 - **projects.html** — project tiles (name, date, cover image, link), newest first
 - **projects/** — one detail page per project:
   - `rf-generator-quadrupole-ion-guide.html` — RF Generator for Quadrupole Ion Guide (Spring 2026 to Present)
+  - `two-way-pager.html` — Two-Way Pager (Fall 2026, in progress)
   - `pcb-board-fusion-dynamics.html` — Drone Docking Station/Structural PDB (Summer 2026)
   - `precision-focus-actuator.html` — Precision Focus Actuator (Fall 2025)
   - `esb-modular-gripper.html` — ESB Modular Gripper (Fall 2025)

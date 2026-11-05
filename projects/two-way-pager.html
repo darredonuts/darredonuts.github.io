@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Darren Lee - Two-Way Pager</title>
+  <meta name="description" content="Two-Way Pager, Hands-On PCB Engineering (EE 198)." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+
+  <link rel="stylesheet" href="../css/styles.css?v=20261022" />
+</head>
+
+<body data-page="projects">
+
+  <div id="site-nav-mount"></div>
+
+  <main class="page">
+
+    <div class="pd-head">
+      <div class="pd-eyebrow">Two-Way Pager <span class="sub">· Fall 2026 · In Progress</span></div>
+      <p class="pd-lead">Battery-powered pagers that text over the 915 MHz ISM band, on a 2-layer board targeting 1 km range at under $40 per board.</p>
+      <p class="pd-role">Hands-On PCB Engineering (EE 198) · 4-person team · Fall 2026</p>
+    </div>
+
+    <div class="pd-text">
+      <p class="pd-subhead">The goal</p>
+      <p>Our team is designing a 2-layer KiCad PCB for battery-powered pagers that text each other over the 915 MHz ISM band. Each board pairs an ESP32-S3 with a CC1101 transceiver and RF matching network, targeting 1 km range at under $40 per board.</p>
+
+      <p class="pd-subhead">What I'm doing</p>
+      <p>I co-designed the power and radio schematics, including USB-C LiPo charging with ESD and reverse current protection, a switched 3.3 V LDO rail, and the CC1101's 915 MHz matching network, and reviewed the remaining sheets.</p>
+
+      <p class="pd-subhead">Status</p>
+      <ul>
+        <li>In progress: schematics and PCB design underway, not yet built</li>
+      </ul>
+    </div>
+
+    <a class="pd-back" href="../projects.html">&larr; back to projects</a>
+  </main>
+
+  <footer class="site-foot">
+    <span>© 2026 Darren Lee</span>
+    <span>Engineered with Electricity · <a href="#" target="_blank" rel="noopener">source</a></span>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>
